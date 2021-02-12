@@ -7,20 +7,36 @@ using System.Threading.Tasks;
 
 namespace AvengersAPI.Controllers
 {
+    public class Emp : IEmp
+    {
+        void IEmp.getemp()
+        {
+            throw new NotImplementedException();
+        }
+    }
+    public interface IEmp
+    {
+        void getemp();
+    }
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
+        
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly IEmp _emp;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(
+            ILogger<WeatherForecastController> logger, IEmp emp)
         {
             _logger = logger;
+            _emp = emp;
+            _emp.getemp();
         }
 
         [HttpGet]
