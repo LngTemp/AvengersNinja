@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvengersAPI", "AvengersAPI\AvengersAPI.csproj", "{E31FD6D2-6E0D-4773-ABCD-50DB8136F7A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvengersAPI", "AvengersAPI\AvengersAPI.csproj", "{E31FD6D2-6E0D-4773-ABCD-50DB8136F7A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avengers.Data", "Avengers.Data\Avengers.Data.csproj", "{0C5CFC7F-435C-470A-BC1C-A1E8CCC28ECA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avengers.Model", "Avengers.Model\Avengers.Model.csproj", "{28BEBCB9-6D42-4F33-AC2F-012A7D904FED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{E31FD6D2-6E0D-4773-ABCD-50DB8136F7A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E31FD6D2-6E0D-4773-ABCD-50DB8136F7A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E31FD6D2-6E0D-4773-ABCD-50DB8136F7A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C5CFC7F-435C-470A-BC1C-A1E8CCC28ECA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C5CFC7F-435C-470A-BC1C-A1E8CCC28ECA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C5CFC7F-435C-470A-BC1C-A1E8CCC28ECA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C5CFC7F-435C-470A-BC1C-A1E8CCC28ECA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28BEBCB9-6D42-4F33-AC2F-012A7D904FED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28BEBCB9-6D42-4F33-AC2F-012A7D904FED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28BEBCB9-6D42-4F33-AC2F-012A7D904FED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28BEBCB9-6D42-4F33-AC2F-012A7D904FED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

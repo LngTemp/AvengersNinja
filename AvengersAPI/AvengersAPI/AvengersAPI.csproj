@@ -7,10 +7,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>bin\$(Configuration)\AvengersAPI.xml</DocumentationFile>
   </PropertyGroup>
-  
+
   <ItemGroup>
     <PackageReference Include="Lamar.Microsoft.DependencyInjection" Version="4.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Avengers.Data\Avengers.Data.csproj" />
+    <ProjectReference Include="..\Avengers.Model\Avengers.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Response\" />
   </ItemGroup>
 
 

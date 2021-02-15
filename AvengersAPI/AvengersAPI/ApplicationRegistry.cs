@@ -14,7 +14,7 @@ namespace AvengersAPI
                 scanner.TheCallingAssembly();
                 scanner.WithDefaultConventions();
                 scanner.AssembliesAndExecutablesFromApplicationBaseDirectory(assembly =>
-                assembly.GetName().Name.StartsWith("AvengersAPI."));
+                assembly.GetName().Name.StartsWith("Avengers."));
             });
 
 

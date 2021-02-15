@@ -7,17 +7,7 @@ using System.Threading.Tasks;
 
 namespace AvengersAPI.Controllers
 {
-    public class Emp : IEmp
-    {
-        void IEmp.getemp()
-        {
-            throw new NotImplementedException();
-        }
-    }
-    public interface IEmp
-    {
-        void getemp();
-    }
+   
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
@@ -29,14 +19,12 @@ namespace AvengersAPI.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
-        private readonly IEmp _emp;
 
         public WeatherForecastController(
-            ILogger<WeatherForecastController> logger, IEmp emp)
+            ILogger<WeatherForecastController> logger)
         {
             _logger = logger;
-            _emp = emp;
-            _emp.getemp();
+           
         }
 
         [HttpGet]

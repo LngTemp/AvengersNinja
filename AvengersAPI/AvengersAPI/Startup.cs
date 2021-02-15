@@ -1,8 +1,10 @@
+using Avengers.Data;
 using Lamar.Microsoft.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -40,6 +42,7 @@ namespace AvengersAPI
                 swag.DescribeAllParametersInCamelCase();
                 swag.CustomSchemaIds(i => i.FullName);
             });
+            services.AddDbContext<AvengersDbContext>(options => options.UseSqlServer(Configuration["database:connection"], b => b.MigrationsAssembly("AvengersAPI")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
