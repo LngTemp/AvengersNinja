@@ -1,13 +1,18 @@
+using Avengers.Data;
+using Lamar.Microsoft.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -26,6 +31,18 @@ namespace AvengersAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddLamar(new ApplicationRegistry());
+            services.AddSwaggerGen(swag =>
+            {
+                swag.SwaggerDoc("v0", new OpenApiInfo { Title = "AvengersAPI Service", Version = "v0" });
+                var basePath = AppContext.BaseDirectory;
+                var xmlPath = Path.Combine(basePath, "AvengersAPI.xml");
+                swag.IncludeXmlComments(xmlPath);
+                swag.DescribeAllEnumsAsStrings();
+                swag.DescribeAllParametersInCamelCase();
+                swag.CustomSchemaIds(i => i.FullName);
+            });
+            services.AddDbContext<AvengersDbContext>(options => options.UseSqlServer(Configuration["database:connection"], b => b.MigrationsAssembly("AvengersAPI")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +63,9 @@ namespace AvengersAPI
             {
                 endpoints.MapControllers();
             });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(x => x.SwaggerEndpoint("v0/swagger.json", "AvengersAPI Service"));
         }
     }
 }
